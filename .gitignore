@@ -1,0 +1,5 @@
+.venv
+.env
+client_secret.json
+client_secret_app.json
+token.json
