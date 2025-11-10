@@ -16,7 +16,7 @@ SCOPES = [
     "openid",
     "https://www.googleapis.com/auth/userinfo.email",
 ]
-REDIRECT_URI = "http://localhost:8000/auth/callback"  
+REDIRECT_URI = "https://send-mail-0ruj.onrender.com/auth/callback"
 
 # Inicializa el flujo OAuth2
 def build_flow():
