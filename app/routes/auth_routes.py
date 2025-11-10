@@ -1,4 +1,5 @@
 from fastapi import APIRouter, HTTPException, Request
+from fastapi.responses import RedirectResponse
 from google_auth_oauthlib.flow import Flow
 from ..db.query import QuerySendEmail
 from dotenv import load_dotenv
@@ -27,10 +28,13 @@ def build_flow():
 
 @router.get("/google")
 async def auth_google():
-    """Genera la URL de autenticación para iniciar sesión con Google."""
+    """
+    Genera la URL de autenticación de Google y redirige al usuario
+    directamente a ella.
+    """
     flow = build_flow()
     auth_url, _ = flow.authorization_url(prompt="consent", access_type="offline")
-    return {"auth_url": auth_url}
+    return RedirectResponse(url=auth_url)
 
 
 @router.get("/callback")
