@@ -4,7 +4,7 @@ from ..service.send_correo import send_email
 
 router = APIRouter()
 
-@router.get("/status")
+@router.api_route("/status", methods=["GET", "HEAD"])
 async def read_status():
     return {"status": "ok"}
 
